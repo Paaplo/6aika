@@ -22,7 +22,7 @@
 			<p>Explore Tampere by public transport</p>
 		</header>
 		<footer>
-			<a href="#first" class="button scroll">Events and attractions</a>
+			<a href="#first" class="button scroll">Main concept</a> <a href="#interlude-mid" class="button scroll-2">Attractions list</a> <a href="#interlude" class="button scroll-3">Attractions map</a>
 		</footer>
 	</section>
 
@@ -30,47 +30,42 @@
 		<header>
 			<div class="container">
 				<h2>Main concept</h2>
-				<li>City tours using local transportation</li>
-				<li>User can choose from local attractions or select recommended tours</li>
-				<li>Automatic routing between locations</li>
-				<li>Scheduling the whole day for the user</li>
-				<li>Estimating travel times and duration of the visits</li>
-				<li>Filter locations by categories</li>
-				<li>Easy purchase for the transportation ticket</li>
-				<li>Travellers, tourists, local citizens</li>
-			</div>
-		</header>
-	</section>	
-	<section id="first" class="main">
-		<header>
-			<div class="container">
+
+				<ul>
+					<li>City tours using local transportation</li>
+					<li>User can choose from local attractions or select recommended tours</li>
+					<li>Automatic routing between locations</li>
+					<li>Scheduling the whole day for the user</li>
+					<li>Estimating travel times and duration of the visits</li>
+					<li>Filter locations by categories</li>
+					<li>Easy purchase for the transportation ticket</li>
+					<li>Travellers, tourists, local citizens</li>
+				</ul>
+
 				<h2>Business model</h2>
-				<li>Free app</li>
-				<li>Extended features with a paid app?</li>
-				<li>Make deals with companies to promote events</li>
-				<li>Make deals with local transportation companies</li>
-				<li></li>
-			</div>
-		</header>
-	</section>	
-	<section id="first" class="main">
-		<header>
-			<div class="container">
+
+				<ul>
+					<li>Free app</li>
+					<li>Extended features with a paid app?</li>
+					<li>Make deals with companies to promote events</li>
+					<li>Make deals with local transportation companies</li>
+				</ul>
+			
 				<h2>Scalability</h2>
-				<li>Any location where these kinds of APIs are available</li>
-				<li>Shopping</li>
-				<li>Licensing</li>
-				<li></li>
-				<li></li>
+
+				<ul>
+					<li>Any location where these kinds of APIs are available</li>
+					<li>Shopping</li>
+					<li>Licensing</li>
+				</ul>
 			</div>
 		</header>
 	</section>
-	<section id="first" class="main">
+
+	<section id="interlude-mid">
 		<header>
-			<div class="container">
-				<h2>List of events and attractions</h2>
-				<p>A list of events and attractions in Tampere region</p>
-			</div>
+			<h2>List of events and attractions</h2>
+			<p>A list of events and attractions in Tampere region</p>
 		</header>
 	</section>
 
@@ -107,6 +102,7 @@
 			<div>
 				<p>Copyright &copy; 2015 - Open Data Makes You Move #Hackathon</p>
 				<p>Happily using the visittampere.fi Open Data API &amp; Google Maps Api v3</p>
+				<p>We should user the JourneyPlanner API for the bus schedules</p>
 			</div>
 		</div>
 	</footer>
@@ -122,6 +118,18 @@
 		$(".scroll").click(function(){
 			$("html,body").animate({
 				scrollTop: $("#first").offset().top
+			},"500");
+			return false;
+		});
+		$(".scroll-2").click(function(){
+			$("html,body").animate({
+				scrollTop: $("#interlude-mid").offset().top
+			},"500");
+			return false;
+		});
+		$(".scroll-3").click(function(){
+			$("html,body").animate({
+				scrollTop: $("#interlude").offset().top
 			},"500");
 			return false;
 		});
