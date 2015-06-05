@@ -20,6 +20,7 @@ body {
 	line-height: 1.25em;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
+	background: rgba(0,0,0,0.5);
 }
 
 #header header p {
@@ -29,7 +30,7 @@ body {
 	font-size: 1.25em;
 	line-height: 1.5em;
 	text-align: center;
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,0.5);
 	display: inline-block;
 }
 
@@ -76,6 +77,10 @@ body {
 
 .main a {
 	border-bottom: 1px dotted #008CBA;
+}
+
+.main ul li {
+	list-style-type: none;
 }
 
 .container {
@@ -188,6 +193,7 @@ footer {
 	line-height: 1.25em;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 100;
+	background: rgba(0,0,0,0.5);
 }
 
 #interlude header p {
@@ -197,7 +203,39 @@ footer {
 	font-size: 1.25em;
 	line-height: 1.5em;
 	text-align: center;
-	background: rgba(0,0,0,0.1);
+	background: rgba(0,0,0,0.5);
+	display: inline-block;
+}
+
+#interlude-mid {
+	position: relative;
+	margin: 0;
+	background-image: url('../img/overlay.png'), url('../img/header.jpg');
+	background-size: auto, cover;
+	background-position: top left, center center;
+	background-repeat: repeat, no-repeat;
+	padding: 7em 0;
+	text-align: center;
+	color: #ffffff;
+}
+
+#interlude-mid header h2 {
+	color: #ffffff;
+	font-size: 3.25em;
+	line-height: 1.25em;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 100;
+	background: rgba(0,0,0,0.5);
+}
+
+#interlude-mid header p {
+	margin-top: 1.25em;
+	font-weight: 100;
+	padding: 0;
+	font-size: 1.25em;
+	line-height: 1.5em;
+	text-align: center;
+	background: rgba(0,0,0,0.5);
 	display: inline-block;
 }
 

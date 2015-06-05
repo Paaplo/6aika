@@ -1,9 +1,9 @@
 
-// user preference to warn about 1..n second
+// user preference to warn about 1..n minutes
 // Require the Bus json from Tampere public transport as input between current location and the destination
 // Provide an alert window,Once user are near  
-function StartBusJourney(routedata) {
-window.setTimeout(NotifytoLeave, routedata[0][0].duration*1000); //-preference*1000
+function StartBusJourney(routedata,preference) {
+window.setTimeout(NotifytoLeave, routedata[0][0].duration*1000-preference*60*1000); 
 
 }
 
@@ -18,7 +18,7 @@ function watchTravel(routedata) {
 }
 
 function NotifytoLeave() {
-    alert("Look around and off the next stop, 3 minutes from now");
+    alert("Look around and off the next stop, 2 minutes from now");
 }
 
 // http://api.publictransport.tampere.fi/prod/?request=route&user=&pass=6aikahackaton&from=3328200,6824913&to=3327752,6825382
@@ -26,7 +26,7 @@ function NotifytoLeave() {
 function testFunction() {
     var journeyjson=[[{"length":817.888,"duration":300,"legs":[{"length":18,"duration":0,"type":"walk","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051533","depTime":"201506051533","name":null},{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051533","depTime":"201506051533","name":"Linja-autoasema","code":"0523","shortCode":"0523"}]},{"length":568,"duration":120,"type":"1","code":"1B","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051533","depTime":"201506051533","name":"Linja-autoasema","code":"0523","shortCode":"0523"},{"coord":{"x":3327960,"y":6825363},"arrTime":"201506051535","depTime":"201506051535","name":"Koskipuisto H","code":"0517","shortCode":"0517"}]},{"length":231,"duration":190.92,"type":"walk","locs":[{"coord":{"x":3327960,"y":6825363},"arrTime":"201506051535","depTime":"201506051535","name":"Koskipuisto H","code":"0517","shortCode":"0517"},{"coord":{"x":3327916.5,"y":6825400.6},"arrTime":"201506051535","depTime":"201506051536","name":"H\u00e4meenkatu"},{"coord":{"x":3327752,"y":6825382},"arrTime":"201506051538","depTime":"201506051539","name":null}]}]}],[{"length":1005.735,"duration":240,"legs":[{"length":18,"duration":0,"type":"walk","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051535","depTime":"201506051535","name":null},{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051535","depTime":"201506051535","name":"Linja-autoasema","code":"0523","shortCode":"0523"}]},{"length":942,"duration":240,"type":"1","code":"4","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051535","depTime":"201506051535","name":"Linja-autoasema","code":"0523","shortCode":"0523"},{"coord":{"x":3327982,"y":6825338},"arrTime":"201506051537","depTime":"201506051537","name":"Koskipuisto I","code":"0519","shortCode":"0519"},{"coord":{"x":3327740,"y":6825350},"arrTime":"201506051539","depTime":"201506051539","name":"Keskustori M","code":"0001","shortCode":"0001"}]},{"length":45,"duration":27.66,"type":"walk","locs":[{"coord":{"x":3327740,"y":6825350},"arrTime":"201506051539","depTime":"201506051539","name":"Keskustori M","code":"0001","shortCode":"0001"},{"coord":{"x":3327750,"y":6825381},"arrTime":"201506051539","depTime":"201506051540","name":"H\u00e4meenkatu"},{"coord":{"x":3327752,"y":6825382},"arrTime":"201506051539","depTime":"201506051540","name":null}]}]}],[{"length":985.333,"duration":240,"legs":[{"length":18,"duration":0,"type":"walk","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051541","depTime":"201506051541","name":null},{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051541","depTime":"201506051541","name":"Linja-autoasema","code":"0523","shortCode":"0523"}]},{"length":916,"duration":240,"type":"1","code":"10","locs":[{"coord":{"x":3328200,"y":6824913},"arrTime":"201506051541","depTime":"201506051541","name":"Linja-autoasema","code":"0523","shortCode":"0523"},{"coord":{"x":3327982,"y":6825338},"arrTime":"201506051543","depTime":"201506051543","name":"Koskipuisto I","code":"0519","shortCode":"0519"},{"coord":{"x":3327741,"y":6825344},"arrTime":"201506051545","depTime":"201506051545","name":"Keskustori N","code":"0008","shortCode":"0008"}]},{"length":50,"duration":31.98,"type":"walk","locs":[{"coord":{"x":3327741,"y":6825344},"arrTime":"201506051545","depTime":"201506051545","name":"Keskustori N","code":"0008","shortCode":"0008"},{"coord":{"x":3327750,"y":6825381},"arrTime":"201506051545","depTime":"201506051546","name":"H\u00e4meenkatu"},{"coord":{"x":3327752,"y":6825382},"arrTime":"201506051545","depTime":"201506051546","name":null}]}]}]];
     console.log(journeyjson);
-    StartBusJourney(journeyjson);
+    StartBusJourney(journeyjson,2); // warn 2 minutes earlier
 
 
 }
