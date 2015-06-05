@@ -95,7 +95,7 @@ angular.module('karttaApp', [])
 	    for (var i = 0; i < $scope.items.length; i++) {
 		if ($scope.items[i].item_id == id) {
 		    console.log("speak");
-		    meSpeak.speak($scope.items[i].description, {speed: 100});
+		    meSpeak.speak($scope.items[i].description, {speed: 150, variant: "f1", linebreak: 10, pitch: 60});
 		    break;
 		}
 	    }
