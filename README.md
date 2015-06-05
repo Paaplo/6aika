@@ -1,4 +1,8 @@
-#Tre Hop On
+#Tampere Hop-On
+
+Explore Tampere by Public Transport
+
+[Demo](http://anttisand.kapsi.fi/kartta) 
 
 - Kaupunkikiertoajelu joukkoliikenteellä                               
 - user lists places to visit                                             
