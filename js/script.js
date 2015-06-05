@@ -6,9 +6,11 @@ angular.module('karttaApp', [])
 				$scope.items = data;
 				angular.forEach($scope.items, function(value, key) {
 					if(value.contact_info.city === 'Tampere') {
-						$http.get("http://api.publictransport.tampere.fi/prod/?request=geocode&user=trehopon&pass=6aikahackaton&key=" + value.contact_info.address)
+						$http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+value.contact_info.address+"&key=AIzaSyDv8gnwsTryzX8qCKH7FK_BuowW7cRrd5g")
 						.success(function(data, status) {
-							console.log(data);
+							value.contact_info.lat = data.results[0].geometry.location.lat;
+							value.contact_info.lon = data.results[0].geometry.location.lng;
+							console.log(data.results[0].geometry.location);
 						})
 						.error(function(data, status) {
 							console.log(data);
