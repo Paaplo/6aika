@@ -1,3 +1,5 @@
+
+
 angular.module('karttaApp', [])
 .controller('MapLocationController', function($scope, $http) {
 	$scope.items = [];
@@ -10,7 +12,8 @@ angular.module('karttaApp', [])
     	styles: 
     	[{'featureType':'administrative','elementType':'all','stylers':[{'visibility':'on'},{'saturation':-100},{'lightness':20}]},{'featureType':'road','elementType':'all','stylers':[{'visibility':'on'},{'saturation':-100},{'lightness':40}]},{'featureType':'water','elementType':'all','stylers':[{'visibility':'on'},{'saturation':-10},{'lightness':30}]},{'featureType':'landscape.man_made','elementType':'all','stylers':[{'visibility':'simplified'},{'saturation':-60},{'lightness':10}]},{'featureType':'landscape.natural','elementType':'all','stylers':[{'visibility':'simplified'},{'saturation':-60},{'lightness':60}]},{'featureType':'poi','elementType':'all','stylers':[{'visibility':'off'},{'saturation':-100},{'lightness':60}]},{'featureType':'transit','elementType':'all','stylers':[{'visibility':'off'},{'saturation':-100},{'lightness':60}]}]  
     };        
-    map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+	
+	map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
 	RenderMap = function(value) {
 		var loc = new google.maps.LatLng(value.lat,value.lng);
@@ -30,6 +33,7 @@ angular.module('karttaApp', [])
 			if(value.contact_info.city === 'Tampere') {
 				$http.get("https://maps.googleapis.com/maps/api/geocode/json?address="+value.contact_info.address+"&key=AIzaSyDv8gnwsTryzX8qCKH7FK_BuowW7cRrd5g")
 				.success(function(data, status) {
+
 					value.contact_info.lat = data.results[0].geometry.location.lat;
 					value.contact_info.lon = data.results[0].geometry.location.lng;
 					console.log(data.results[0].geometry.location);
@@ -82,4 +86,20 @@ angular.module('karttaApp', [])
     });
 */
 
+	meSpeak.loadConfig("js/vendor/mespeak/mespeak_config.json");
+        meSpeak.loadVoice('js/vendor/mespeak/voices/en/en-us.json');
+	
+	$scope.speakTitle = function(id) {
+	    console.log("speak: " + id);
+	    console.log($scope.items);
+	    for (var i = 0; i < $scope.items.length; i++) {
+		if ($scope.items[i].item_id == id) {
+		    console.log("speak");
+		    meSpeak.speak($scope.items[i].description, {speed: 100});
+		    break;
+		}
+	    }
+	}
 });
+
+

@@ -38,7 +38,7 @@
 	<section class="cover-container" data-ng-controller="MapLocationController as loc">
 		<ul>
 			<li data-ng-repeat="item in items | filter: {contact_info: { city: 'Tampere' } }">
-				<strong>{{item.title}}</strong><br>
+				<strong><a data-ng-click="speakTitle(item.item_id)">{{item.title}}</a></strong><br>
 				<em>{{item.contact_info.address}}, {{item.contact_info.postcode}},
 				{{item.contact_info.city}},
 				{{item.contact_info.country}}</em><br>
@@ -77,6 +77,7 @@
   <script type="text/javascript" src="js/routing.js"></script>
 	<script src="js/vendor/jquery.js"></script>
 	<script src="js/foundation.min.js"></script>
+	<script src="js/vendor/mespeak/mespeak.js"></script>
 	<script>
 	$(document).foundation();
 	$(function(){
